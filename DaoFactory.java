@@ -1,4 +1,4 @@
-package lesson10_04;
+package les10;
 
 import java.sql.*;
 
