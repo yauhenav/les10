@@ -1,0 +1,4 @@
+
+java -cp ".;c:\Program Files (x86)\MySQL\Connector.J 5.1\mysql-connector-java-5.1.40-bin.jar" les10.Demo
+
+javac -cp "e:\repos" e:\repos\les10\StudentDao.java e:\repos\les10\SubjectDao.java e:\repos\les10\MySqlSubjectDao.java e:\repos\les10\MySqlStudentDao.java e:\repos\les10\MySqlMarkDao.java e:\repos\les10\MarkDao.java e:\repos\les10\MySqlDaoFactory.java e:\repos\les10\DaoFactory.java e:\repos\les10\Demo.java e:\repos\les10\Student.java e:\repos\les10\Subject.java e:\repos\les10\Mark.java
