@@ -6,6 +6,7 @@ import java.util.*;
 public class Demo {
 	public static void main (String args[]) {
 		// Создаем объект сеанса работы с базой данных
+		try {
 		Connection con = null;
 		DaoFactory interDaoFact = null;
 		StudentDao interDaoStud = null;
@@ -13,27 +14,23 @@ public class Demo {
 		MarkDao interDaoMar = null;
 		
 		
-		try {
-			interDaoFact = new MySqlDaoFactory ();
-			con = interDaoFact.getConnect();
-		} catch (SQLException exc) {
-			exc.printStackTrace();
-		}
+		interDaoFact = new MySqlDaoFactory ();
+		con = interDaoFact.getConnect();
 		
 		//Прочитать всех студентов
-		try {
-			interDaoStud = interDaoFact.getStudentDao(con);
-			List showStuds0 = interDaoStud.getAll();
-			System.out.println ("Here's a list of all students in the DB");
-			Iterator<Student> itrstud0 = showStuds0.iterator();
-			while (itrstud0.hasNext()) {
-				Student element = itrstud0.next();
-				System.out.println (element.toString());
-			}
+		
+		interDaoStud = interDaoFact.getStudentDao(con);
+		List showStuds0 = interDaoStud.getAll();
+		System.out.println ("Here's a list of all students in the DB");
+		Iterator<Student> itrstud0 = showStuds0.iterator();
+		while (itrstud0.hasNext()) {
+			Student element = itrstud0.next();
+			System.out.println (element.toString());
+		}
 		} catch (DaoException exc) {
 			exc.printStackTrace();
 		}
-		
+		/*
 		// Получить все предметы
 		try {
 			interDaoSub = interDaoFact.getSubjectDao(con);
@@ -256,6 +253,6 @@ public class Demo {
 			}
 		} catch (DaoException exc) {
 			exc.printStackTrace();
-		}	
+		}*/	
 	}
 }
