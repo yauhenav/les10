@@ -3,6 +3,8 @@ package les10;
 import java.sql.*;
 import java.util.*;
 
+// 3rd try to check if hit works ok
+
 public class Demo {
 	public static void main (String args[]) {
 		// Создаем объект сеанса работы с базой данных
