@@ -192,6 +192,38 @@ public class Demo {
 			}
 		} catch (DaoException | SQLException exc) {
 			exc.printStackTrace();
-		}	
+		}
+		
+		finally {
+			try {
+				if (interDaoFact != null) {
+					interDaoFact.close();
+				} else {
+					System.out.println("MySqlDaoFactory object was not created");
+				}
+				if (interDaoStud != null) {
+					interDaoStud.close();
+				} else {
+					System.out.println("MySqlStudentDao object was not created");
+				}
+				if (interDaoSub != null) {
+					interDaoSub.close();
+				} else {
+					System.out.println("MySqlSubjectDao object was not created");
+				}
+				if (interDaoMar != null) {
+					interDaoMar.close();
+				} else {
+					System.out.println("MySqlMarkDao object was not created");
+				}
+				if (con != null) {
+					con.close();
+				} else {
+					System.out.println("Connection object was not created");	
+				} 
+			} catch (SQLException exc) {
+				throw new DaoException ("Exception for DAO");
+			}
+		}
 	}
 }
