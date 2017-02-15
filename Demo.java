@@ -3,8 +3,6 @@ package les10;
 import java.sql.*;
 import java.util.*;
 
-MARKER FOR 1 BRANCH DEMO FILE
-
 public class Demo {
 	public static void main (String args[]) {
 		// Создаем объект сеанса работы с базой данных
