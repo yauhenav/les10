@@ -5,23 +5,18 @@ import java.util.*;
 
 public class Demo {
 	public static void main (String args[]) {
-		// Создаем объект сеанса работы с базой данных
-		Connection con = null;
-		DaoFactory interDaoFact = null;
-		StudentDao interDaoStud = null;
-		SubjectDao interDaoSub = null;
-		MarkDao interDaoMar = null;
-		
-		
 		try {
+			// Создаем объект сеанса работы с базой данных
+			Connection con = null;
+			DaoFactory interDaoFact = null;
+			StudentDao interDaoStud = null;
+			SubjectDao interDaoSub = null;
+			MarkDao interDaoMar = null;
+		
 			interDaoFact = new MySqlDaoFactory ();
 			con = interDaoFact.getConnect();
-		} catch (SQLException exc) {
-			exc.printStackTrace();
-		}
 		
 		//Прочитать всех студентов
-		try {
 			interDaoStud = interDaoFact.getStudentDao(con);
 			List showStuds0 = interDaoStud.getAll();
 			System.out.println ("Here's a list of all students in the DB");
@@ -195,7 +190,7 @@ public class Demo {
 				Mark element = itrmar4.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
+		} catch (DaoException | SQLException exc) {
 			exc.printStackTrace();
 		}	
 	}
