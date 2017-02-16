@@ -5,14 +5,14 @@ import java.util.*;
 
 public class Demo {
 	public static void main (String args[]) {
-		try {
+
 			// Создаем объект сеанса работы с базой данных
 			Connection con = null;
 			DaoFactory interDaoFact = null;
 			StudentDao interDaoStud = null;
 			SubjectDao interDaoSub = null;
 			MarkDao interDaoMar = null;
-		
+		try {		
 			interDaoFact = new MySqlDaoFactory ();
 			con = interDaoFact.getConnect();
 		
@@ -196,11 +196,6 @@ public class Demo {
 		
 		finally {
 			try {
-				if (interDaoFact != null) {
-					interDaoFact.close();
-				} else {
-					System.out.println("MySqlDaoFactory object was not created");
-				}
 				if (interDaoStud != null) {
 					interDaoStud.close();
 				} else {
@@ -221,8 +216,8 @@ public class Demo {
 				} else {
 					System.out.println("Connection object was not created");	
 				} 
-			} catch (SQLException exc) {
-				throw new DaoException ("Exception for DAO");
+			} catch (DaoException | SQLException exc) {
+				exc.printStackTrace();
 			}
 		}
 	}
