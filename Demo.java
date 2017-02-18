@@ -5,23 +5,18 @@ import java.util.*;
 
 public class Demo {
 	public static void main (String args[]) {
-		// Создаем объект сеанса работы с базой данных
-		Connection con = null;
-		DaoFactory interDaoFact = null;
-		StudentDao interDaoStud = null;
-		SubjectDao interDaoSub = null;
-		MarkDao interDaoMar = null;
-		
-		
-		try {
+
+			// Создаем объект сеанса работы с базой данных
+			Connection con = null;
+			DaoFactory interDaoFact = null;
+			StudentDao interDaoStud = null;
+			SubjectDao interDaoSub = null;
+			MarkDao interDaoMar = null;
+		try {		
 			interDaoFact = new MySqlDaoFactory ();
 			con = interDaoFact.getConnect();
-		} catch (SQLException exc) {
-			exc.printStackTrace();
-		}
 		
 		//Прочитать всех студентов
-		try {
 			interDaoStud = interDaoFact.getStudentDao(con);
 			List showStuds0 = interDaoStud.getAll();
 			System.out.println ("Here's a list of all students in the DB");
@@ -30,12 +25,9 @@ public class Demo {
 				Student element = itrstud0.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
 		
 		// Получить все предметы
-		try {
+
 			interDaoSub = interDaoFact.getSubjectDao(con);
 			List showSubs0 = interDaoSub.getAll();		
 			System.out.println ("Here goes a list of all subjects in the DB");
@@ -44,12 +36,8 @@ public class Demo {
 				Subject element = itrsub0.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}		
 		
 		// Получить все оценки из БД
-		try {
 			interDaoMar = interDaoFact.getMarkDao(con);
 			List showAllMarks = interDaoMar.getAll();
 			System.out.println ("Here goes a list of all marks of all students for all subjects");
@@ -58,12 +46,8 @@ public class Demo {
 				Mark element = itrmar0.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}	
 		
 		// Получить все предметы одного студента вместе с оценками по ID студента
-		try {
 			List showMarksOneStud = interDaoMar.getAllMarkOneStud(4);
 			System.out.println ("Here goes a list of all marks of one student");
 			Iterator<Mark> itrmar1 = showMarksOneStud.iterator();
@@ -71,21 +55,13 @@ public class Demo {
 				Mark element = itrmar1.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
 		
 		// Прочитать студента по его ключу
-		try {
 			System.out.println ("Here goes one student from selected key");
 			Student dummyStud1 = interDaoStud.read(5);
 			System.out.println(dummyStud1.toString());
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}			
 		
 		// добавить в БД новую запись на основании переданного экземпляра студента
-		try {
 			System.out.println("Here goes a new student added to DB");
 			Student dummyStud4 = new Student();
 			dummyStud4.setId(11);
@@ -99,12 +75,8 @@ public class Demo {
 				Student element = itrstud2.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
 			
 		// обновить студента
-		try {
 			System.out.println("Here goes updated student");
 			Student dummyStud2 = new Student();
 			dummyStud2.setId(11);
@@ -112,12 +84,8 @@ public class Demo {
 			dummyStud2.setSurname("Shreder");
 			interDaoStud.update (dummyStud2);
 			System.out.println(interDaoStud.read(11).toString());
-			} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
 		
 		// удалить из БД запись на основании переданного экземпляра студента
-		try {
 			System.out.println("This is to demonstrate the deletion of a student by ID");
 			Student dummyStud3 = interDaoStud.read(11);
 			interDaoStud.delete (dummyStud3);
@@ -128,22 +96,13 @@ public class Demo {
 				Student element = itrstud1.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
-				
 		
 		// Прочитать предмет по его ключу
-		try {
 			System.out.println("Here goes one subject from specified key");
 			Subject dummySubj1 = interDaoSub.read(3);
 			System.out.println(dummySubj1.toString());
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
 
 		// добавить в БД новую запись на основании переданного экземпляра предмета
-		try {
 			System.out.println ("Here goes a demonstration of a subject addition");
 			Subject dummySubj3 = new Subject();
 			dummySubj3.setId(7);
@@ -156,12 +115,8 @@ public class Demo {
 				Subject element = itrsub3.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
 		
 		// обновить предмет по указанному ID
-		try {
 			System.out.println("Here goes a demonstration of a subject update");
 			Subject dummySubj2 = new Subject();
 			dummySubj2.setId(7);
@@ -174,12 +129,8 @@ public class Demo {
 				Subject element = itrsub2.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}	
 				
 		// удалить из БД запись на основании переданного экземпляра предмета
-		try {
 			System.out.println ("This is to demonstrate the deletion of a subject by ID");
 			Subject dummySubj4 = new Subject();
 			dummySubj4.setId(7);
@@ -191,20 +142,13 @@ public class Demo {
 				Subject element = itrsub4.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
 		
 		// прочитать оценку по переданному ID экзмпляра Mark
-		try {
 			System.out.println("Here goes a mark selected by Mark's ID");
 			Mark dummyMar1 = interDaoMar.read(21);
 			System.out.println(dummyMar1.toString());
-			} catch (DaoException exc) {
-			exc.printStackTrace();
-		}
+
 		// добавить в БД новую запись оценки на основании переданного экземпляра студента и предмета
-		try {
 			System.out.println("Here goes demonstration of a Mark addition");
 			Mark dummyMar2 = new Mark();
 			dummyMar2.setId(61);
@@ -219,12 +163,8 @@ public class Demo {
 				Mark element = itrmar2.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}	
 		
 		// обновить оценку
-		try {
 			System.out.println ("Here goes demonstrationof a Mark update");
 			Mark dummyMar3 = new Mark();
 			dummyMar3.setId(61);
@@ -239,12 +179,8 @@ public class Demo {
 				Mark element = itrmar3.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
-			exc.printStackTrace();
-		}	
 			
 		// удалить оценку из БД
-		try {
 			System.out.println("Here goes demonstration of a Mark deletion");
 			interDaoMar.delete(61);
 			List showAllMarks4 = interDaoMar.getAll();
@@ -254,8 +190,35 @@ public class Demo {
 				Mark element = itrmar4.next();
 				System.out.println (element.toString());
 			}
-		} catch (DaoException exc) {
+		} catch (DaoException | SQLException exc) {
 			exc.printStackTrace();
-		}	
+		}
+		
+		finally {
+			try {
+				if (interDaoStud != null) {
+					interDaoStud.close();
+				} else {
+					System.out.println("MySqlStudentDao object was not created");
+				}
+				if (interDaoSub != null) {
+					interDaoSub.close();
+				} else {
+					System.out.println("MySqlSubjectDao object was not created");
+				}
+				if (interDaoMar != null) {
+					interDaoMar.close();
+				} else {
+					System.out.println("MySqlMarkDao object was not created");
+				}
+				if (con != null) {
+					con.close();
+				} else {
+					System.out.println("Connection object was not created");	
+				} 
+			} catch (DaoException | SQLException exc) {
+				exc.printStackTrace();
+			}
+		}
 	}
 }
