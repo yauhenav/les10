@@ -2,6 +2,7 @@ package les10;
 
 import java.sql.*;
 import java.util.*;
+import java.io.*;
 
 public class Demo {
 	public static void main (String args[]) {
@@ -190,7 +191,7 @@ public class Demo {
 				Mark element = itrmar4.next();
 				System.out.println (element);
 			}
-		} catch (DaoException | SQLException exc) {
+		} catch (DaoException | SQLException | IOException exc) {
 			exc.printStackTrace();
 		}
 		

@@ -2,15 +2,14 @@ package les10;
 
 import java.sql.*;
 import java.util.*;
+import java.io.*;
 
 public class MySqlDaoFactory implements DaoFactory {
 
-    public String user = "root";//Логин пользователя
-    public String password = "1234";//Пароль
-    public String url = "jdbc:mysql://localhost:3306/daotrain";//URL адрес
-   	
-    public Connection getConnect() throws SQLException {
-        return DriverManager.getConnection(url, user, password);
+    public Connection getConnect() throws SQLException, IOException, FileNotFoundException {
+        Properties props = new Properties();
+		props.load(new FileInputStream("e:/repos/les10/config.properties"));
+		return DriverManager.getConnection(props.getProperty("url"), props.getProperty("user"), props.getProperty("password"));
     }
 
     @Override

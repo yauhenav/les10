@@ -1,11 +1,13 @@
 package les10;
 
 import java.sql.*;
+import java.util.*;
+import java.io.*;
 
 public interface DaoFactory {
 
     // Возвращает подключение к базе данных
-    public Connection getConnect() throws SQLException;
+    public Connection getConnect() throws SQLException, IOException, FileNotFoundException;
 
     // Возвращает объект для управления персистентным состоянием объекта Student
     public StudentDao getStudentDao(Connection connection) throws DaoException;
