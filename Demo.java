@@ -214,7 +214,7 @@ public class Demo {
 				if (con != null) {
 					con.close();
 				} else {
-					System.out.println("Connection object was not created");	
+					System.out.println("Connection was not established");
 				} 
 			} catch (DaoException | SQLException exc) {
 				exc.printStackTrace();
