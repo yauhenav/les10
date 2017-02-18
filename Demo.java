@@ -165,7 +165,7 @@ public class Demo {
 			}
 		
 		// обновить оценку
-			System.out.println ("Here goes demonstrationof a Mark update");
+			System.out.println ("Here goes demonstration of a Mark update");
 			Mark dummyMar3 = new Mark();
 			dummyMar3.setId(61);
 			dummyMar3.setValue(8);
