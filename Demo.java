@@ -18,7 +18,7 @@ public class Demo {
 		
 		//Прочитать всех студентов
 			interDaoStud = interDaoFact.getStudentDao(con);
-			List showStuds0 = interDaoStud.getAll();
+			List<Student> showStuds0 = interDaoStud.getAll();
 			System.out.println ("Here's a list of all students in the DB");
 			Iterator<Student> itrstud0 = showStuds0.iterator();
 			while (itrstud0.hasNext()) {
@@ -29,7 +29,7 @@ public class Demo {
 		// Получить все предметы
 
 			interDaoSub = interDaoFact.getSubjectDao(con);
-			List showSubs0 = interDaoSub.getAll();		
+			List<Subject> showSubs0 = interDaoSub.getAll();		
 			System.out.println ("Here goes a list of all subjects in the DB");
 			Iterator<Subject> itrsub0 = showSubs0.iterator();
 			while (itrsub0.hasNext()) {
@@ -39,7 +39,7 @@ public class Demo {
 		
 		// Получить все оценки из БД
 			interDaoMar = interDaoFact.getMarkDao(con);
-			List showAllMarks = interDaoMar.getAll();
+			List<Mark> showAllMarks = interDaoMar.getAll();
 			System.out.println ("Here goes a list of all marks of all students for all subjects");
 			Iterator<Mark> itrmar0 = showAllMarks.iterator();
 			while (itrmar0.hasNext()) {
@@ -48,7 +48,7 @@ public class Demo {
 			}
 		
 		// Получить все предметы одного студента вместе с оценками по ID студента
-			List showMarksOneStud = interDaoMar.getAllMarkOneStud(4);
+			List<Mark> showMarksOneStud = interDaoMar.getAllMarkOneStud(4);
 			System.out.println ("Here goes a list of all marks of one student");
 			Iterator<Mark> itrmar1 = showMarksOneStud.iterator();
 			while (itrmar1.hasNext()) {
@@ -68,7 +68,7 @@ public class Demo {
 			dummyStud4.setName("Jaques");
 			dummyStud4.setSurname("Chiraques");
 			interDaoStud.create(dummyStud4);
-			List showStuds2 = interDaoStud.getAll();
+			List<Student> showStuds2 = interDaoStud.getAll();
 			System.out.println ("Here's a list of all students in the DB after addition");
 			Iterator<Student> itrstud2 = showStuds2.iterator();
 			while (itrstud2.hasNext()) {
@@ -89,7 +89,7 @@ public class Demo {
 			System.out.println("This is to demonstrate the deletion of a student by ID");
 			Student dummyStud3 = interDaoStud.read(11);
 			interDaoStud.delete (dummyStud3);
-			List showStuds1 = interDaoStud.getAll();
+			List<Student> showStuds1 = interDaoStud.getAll();
 			System.out.println ("Here's a list of all students in the DB after deletion");
 			Iterator<Student> itrstud1 = showStuds1.iterator();
 			while (itrstud1.hasNext()) {
@@ -108,7 +108,7 @@ public class Demo {
 			dummySubj3.setId(7);
 			dummySubj3.setDescription("SOFTWARE DESIGN");
 			interDaoSub.create(dummySubj3);
-			List showSubs3 = interDaoSub.getAll();
+			List<Subject> showSubs3 = interDaoSub.getAll();
 			System.out.println ("Here goes a list of all subjects in the DB after addition");
 			Iterator<Subject> itrsub3 = showSubs3.iterator();
 			while (itrsub3.hasNext()) {
@@ -122,7 +122,7 @@ public class Demo {
 			dummySubj2.setId(7);
 			dummySubj2.setDescription("SOFTWARE ENGINEERING");
 			interDaoSub.update(dummySubj2);
-			List showSubs2 = interDaoSub.getAll();
+			List<Subject> showSubs2 = interDaoSub.getAll();
 			System.out.println ("Here goes a list of all subjects in the DB after update");
 			Iterator<Subject> itrsub2 = showSubs2.iterator();
 			while (itrsub2.hasNext()) {
@@ -135,7 +135,7 @@ public class Demo {
 			Subject dummySubj4 = new Subject();
 			dummySubj4.setId(7);
 			interDaoSub.delete(dummySubj4);
-			List showSubs4 = interDaoSub.getAll();
+			List<Subject> showSubs4 = interDaoSub.getAll();
 			System.out.println ("Here goes a list of all subjects in the DB after deletion");
 			Iterator<Subject> itrsub4 = showSubs4.iterator();
 			while (itrsub4.hasNext()) {
@@ -156,7 +156,7 @@ public class Demo {
 			dummyMar2.setStudentId(10);
 			dummyMar2.setSubjectId(4);
 			interDaoMar.create(dummyMar2);
-			List showAllMarks2 = interDaoMar.getAll();
+			List<Mark> showAllMarks2 = interDaoMar.getAll();
 			System.out.println ("Here goes a list of all marks of all students for all subjects after addition");
 			Iterator<Mark> itrmar2 = showAllMarks2.iterator();
 			while (itrmar2.hasNext()) {
@@ -172,7 +172,7 @@ public class Demo {
 			dummyMar3.setStudentId(9);
 			dummyMar3.setSubjectId(5);
 			interDaoMar.update(dummyMar3);
-			List showAllMarks3 = interDaoMar.getAll();
+			List<Mark> showAllMarks3 = interDaoMar.getAll();
 			System.out.println ("Here goes a list of all marks of all students for all subjects after update");
 			Iterator<Mark> itrmar3 = showAllMarks3.iterator();
 			while (itrmar3.hasNext()) {
@@ -183,7 +183,7 @@ public class Demo {
 		// удалить оценку из БД
 			System.out.println("Here goes demonstration of a Mark deletion");
 			interDaoMar.delete(61);
-			List showAllMarks4 = interDaoMar.getAll();
+			List<Mark> showAllMarks4 = interDaoMar.getAll();
 			System.out.println ("Here goes a list of all marks of all students for all subjects after deletion");
 			Iterator<Mark> itrmar4 = showAllMarks4.iterator();
 			while (itrmar4.hasNext()) {
