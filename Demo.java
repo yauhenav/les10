@@ -23,7 +23,7 @@ public class Demo {
 			Iterator<Student> itrstud0 = showStuds0.iterator();
 			while (itrstud0.hasNext()) {
 				Student element = itrstud0.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		
 		// Получить все предметы
@@ -34,7 +34,7 @@ public class Demo {
 			Iterator<Subject> itrsub0 = showSubs0.iterator();
 			while (itrsub0.hasNext()) {
 				Subject element = itrsub0.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		
 		// Получить все оценки из БД
@@ -44,7 +44,7 @@ public class Demo {
 			Iterator<Mark> itrmar0 = showAllMarks.iterator();
 			while (itrmar0.hasNext()) {
 				Mark element = itrmar0.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		
 		// Получить все предметы одного студента вместе с оценками по ID студента
@@ -53,7 +53,7 @@ public class Demo {
 			Iterator<Mark> itrmar1 = showMarksOneStud.iterator();
 			while (itrmar1.hasNext()) {
 				Mark element = itrmar1.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		
 		// Прочитать студента по его ключу
@@ -73,7 +73,7 @@ public class Demo {
 			Iterator<Student> itrstud2 = showStuds2.iterator();
 			while (itrstud2.hasNext()) {
 				Student element = itrstud2.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 			
 		// обновить студента
@@ -94,7 +94,7 @@ public class Demo {
 			Iterator<Student> itrstud1 = showStuds1.iterator();
 			while (itrstud1.hasNext()) {
 				Student element = itrstud1.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		
 		// Прочитать предмет по его ключу
@@ -113,7 +113,7 @@ public class Demo {
 			Iterator<Subject> itrsub3 = showSubs3.iterator();
 			while (itrsub3.hasNext()) {
 				Subject element = itrsub3.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		
 		// обновить предмет по указанному ID
@@ -127,7 +127,7 @@ public class Demo {
 			Iterator<Subject> itrsub2 = showSubs2.iterator();
 			while (itrsub2.hasNext()) {
 				Subject element = itrsub2.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 				
 		// удалить из БД запись на основании переданного экземпляра предмета
@@ -140,7 +140,7 @@ public class Demo {
 			Iterator<Subject> itrsub4 = showSubs4.iterator();
 			while (itrsub4.hasNext()) {
 				Subject element = itrsub4.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		
 		// прочитать оценку по переданному ID экзмпляра Mark
@@ -161,7 +161,7 @@ public class Demo {
 			Iterator<Mark> itrmar2 = showAllMarks2.iterator();
 			while (itrmar2.hasNext()) {
 				Mark element = itrmar2.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		
 		// обновить оценку
@@ -177,7 +177,7 @@ public class Demo {
 			Iterator<Mark> itrmar3 = showAllMarks3.iterator();
 			while (itrmar3.hasNext()) {
 				Mark element = itrmar3.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 			
 		// удалить оценку из БД
@@ -188,7 +188,7 @@ public class Demo {
 			Iterator<Mark> itrmar4 = showAllMarks4.iterator();
 			while (itrmar4.hasNext()) {
 				Mark element = itrmar4.next();
-				System.out.println (element.toString());
+				System.out.println (element);
 			}
 		} catch (DaoException | SQLException exc) {
 			exc.printStackTrace();
