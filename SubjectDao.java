@@ -5,21 +5,21 @@ import java.sql.*;
 
 public interface SubjectDao {
 
-    // Создает новую запись и соответствующий ей объект
+    // Creates a new DB entry as per corresponding received object
 	public void create(Subject subject) throws DaoException;
 
-    // Возвращает объект соответствующий записи с первичным ключом key или null
+    // Returns the object corresponding to the DB entry with received primary 'key'
 	public Subject read(int key) throws DaoException;
 
-    //Сохраняет состояние объекта group в базе данных
+    // Modifies the DB entry as per corresponding received object
 	public void update(Subject subject) throws DaoException;
 
-    //Удаляет запись об объекте из базы данных
+    // Removes the DB entry as per corresponding received object
 	public void delete(Subject subject)  throws DaoException;
 
-    //Возвращает список объектов соответствующих всем записям в базе данных
+    // Returns a list of objects corresponding to all DB entries
 	public List<Subject> getAll() throws DaoException;
 	
-	//Закрывает соединение и все PreparedStatement's
+	// Terminates the connection and all 'PreparedStatement's
 	public void close() throws DaoException;
 }

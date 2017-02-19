@@ -200,22 +200,22 @@ public class Demo {
 				if (interDaoStud != null) {
 					interDaoStud.close();
 				} else {
-					System.out.println("MySqlStudentDao object was not created");
+					System.err.println("MySqlStudentDao object was not created");
 				}
 				if (interDaoSub != null) {
 					interDaoSub.close();
 				} else {
-					System.out.println("MySqlSubjectDao object was not created");
+					System.err.println("MySqlSubjectDao object was not created");
 				}
 				if (interDaoMar != null) {
 					interDaoMar.close();
 				} else {
-					System.out.println("MySqlMarkDao object was not created");
+					System.err.println("MySqlMarkDao object was not created");
 				}
 				if (con != null) {
 					con.close();
 				} else {
-					System.out.println("Connection was not established");
+					System.err.println("Connection was not established");
 				} 
 			} catch (DaoException | SQLException exc) {
 				exc.printStackTrace();

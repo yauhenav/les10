@@ -19,7 +19,7 @@ public class MySqlSubjectDao implements SubjectDao {
 	public ResultSet rsReadSubj = null;
 	public ResultSet rsGetAllSubj = null;
 	
-	// Конструктор
+	// Constructor
 	public MySqlSubjectDao(Connection connection) throws DaoException {
         try {
 			this.connection = connection;
@@ -33,7 +33,7 @@ public class MySqlSubjectDao implements SubjectDao {
 		}			
     }
 	
-	//Добавить в БД новую запись предмета в соответствии с переданным экземляром Subject	
+    // Creates a new DB entry as per corresponding received object
     @Override
     public void create(Subject subject) throws DaoException {
 		try {
@@ -45,7 +45,7 @@ public class MySqlSubjectDao implements SubjectDao {
 		}
     }
 
-	//Получить из БД экземляр Subject по указанному ID
+    // Returns the object corresponding to the DB entry with received primary 'key'
     @Override
     public Subject read(int key) throws DaoException {
 		try {
@@ -72,7 +72,7 @@ public class MySqlSubjectDao implements SubjectDao {
 		}
 	}
 	
-	// Обновить имеющуюся запись в БД в соответствии с переданным экземляром Subject
+    // Modifies the DB entry as per corresponding received object
     @Override
     public void update(Subject subject) throws DaoException {
 		try {
@@ -84,7 +84,7 @@ public class MySqlSubjectDao implements SubjectDao {
 		}
 	}
 	
-	// Удалить запись из БД по переданному экземляру Subject
+    // Removes the DB entry as per corresponding received object
     @Override
     public void delete(Subject subject) throws DaoException {
 		try {
@@ -95,7 +95,7 @@ public class MySqlSubjectDao implements SubjectDao {
 		}
 	}
 	
-	// Создать коллекция и заполнить ее всеми имеющимися объектами в БД
+    // Returns a list of objects corresponding to all DB entries
     @Override
     public List<Subject> getAll() throws DaoException {
 		try {
@@ -124,7 +124,7 @@ public class MySqlSubjectDao implements SubjectDao {
 		}
 	}
 	
-	// Закрыть все PreparedStatement и Connection, чтобы освободить ресурсы БД
+	// Terminates the connection and all 'PreparedStatement's
 	public void close() throws DaoException {
 		try {
 			if (psCreateSubj != null) {
