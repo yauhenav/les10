@@ -11,15 +11,18 @@ public class MySqlDaoFactory implements DaoFactory {
 		props.load(new FileInputStream("e:/repos/les10/config.properties"));
 		return DriverManager.getConnection(props.getProperty("url"), props.getProperty("user"), props.getProperty("password"));
     }
-
+	
+	@Override
     public StudentDao getStudentDao(Connection connection) throws DaoException {
         return new MySqlStudentDao(connection);
     }
 
+	@Override
     public SubjectDao getSubjectDao(Connection connection) throws DaoException {
         return new MySqlSubjectDao(connection);
     }
 	
+	@Override
     public MarkDao getMarkDao(Connection connection) throws DaoException {
         return new MySqlMarkDao(connection);
 	}
