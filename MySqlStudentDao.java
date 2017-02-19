@@ -19,7 +19,7 @@ public class MySqlStudentDao implements StudentDao {
 	public ResultSet rsReadStud = null;
 	public ResultSet rsGetAllStud = null;
 	
-	// Конструктор
+	// Constructor
 	public MySqlStudentDao(Connection connection) throws DaoException {
 		try {
 		this.connection = connection;
@@ -33,7 +33,7 @@ public class MySqlStudentDao implements StudentDao {
 		}
     }
 	
-	// Добавить в БД новую запись студента в соответствии с переданным экземляром Student
+    // Creates a new DB entry as per corresponding received object
     @Override 
     public void create(Student student) throws DaoException {
 		try {
@@ -46,7 +46,7 @@ public class MySqlStudentDao implements StudentDao {
 		} 
 	}
     
-    // Получить из БД экземпляр Student по указанному ID
+    // Returns the object corresponding to the DB entry with received primary 'key'
 	@Override 
     public Student read(int key) throws DaoException {
 		try {
@@ -74,7 +74,7 @@ public class MySqlStudentDao implements StudentDao {
 		}
 	}	
 	
-	// Обновить имеющуюся запись в БД в соответствии с переданным экземпляром Student
+    // Modifies the DB entry as per corresponding received object
 	@Override 
     public void update(Student student) throws DaoException {
 		try {
@@ -87,7 +87,7 @@ public class MySqlStudentDao implements StudentDao {
 		} 
 	}
 
-	// Удалить запись из БД по фамилиии из переданного экзмепляра Student
+    // Removes the DB entry as per corresponding received object
     @Override 
     public void delete(Student student) throws DaoException {
 		try {
@@ -98,7 +98,7 @@ public class MySqlStudentDao implements StudentDao {
 		} 
 	}
 
-	// Создать коллекцию и заполнить ее всеми имеющимися объектами в БД
+    // Returns a list of objects corresponding to all DB entries
     @Override
     public List<Student> getAll() throws DaoException {
 		try {

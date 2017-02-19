@@ -6,15 +6,15 @@ import java.io.*;
 
 public interface DaoFactory {
 
-    // Возвращает подключение к базе данных
+    // Returns connection to the Data Base
     public Connection getConnect() throws SQLException, IOException, FileNotFoundException;
 
-    // Возвращает объект для управления персистентным состоянием объекта Student
+    // Returns an object to manage persistent 'Student' object
     public StudentDao getStudentDao(Connection connection) throws DaoException;
 
-    // Возвращает объект для управления персистентным состоянием объекта Subject
+    // Returns an object to manage persistent 'Subject' object
     public SubjectDao getSubjectDao(Connection connection) throws DaoException;
 	
-	// Возвращает объект для управления персистентным состоянием объекта Mark
+	// Returns an object to manage persistent 'Mark' object
 	public MarkDao getMarkDao (Connection connection) throws DaoException;
 }
