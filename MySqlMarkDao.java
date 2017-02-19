@@ -22,7 +22,7 @@ public class MySqlMarkDao implements MarkDao {
 	public ResultSet rsGetAllMark = null;
 	public ResultSet rsGetAllMarkOneStud = null;
 	
-	// Конструктор
+	// Constructor
 	public MySqlMarkDao(Connection connection) throws DaoException {
 		try {
 			this.connection = connection;
@@ -176,55 +176,31 @@ public class MySqlMarkDao implements MarkDao {
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psReadMark != null) {
 				psReadMark.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psUpdMark != null) {
 				psUpdMark.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psDelMark != null) {
 				psDelMark.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psGetAllMark != null) {
 				psGetAllMark.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psGetAllMarkOneStud != null) {
 				psGetAllMarkOneStud.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (connection != null) {
 				connection.close();
 				} else {

@@ -128,7 +128,7 @@ public class MySqlStudentDao implements StudentDao {
 		}
 	}
 	
-	// Закрыть все PreparedStatement и Connection, чтобы освободить ресурсы БД
+	// Terminates the connection and all 'PreparedStatement's
 	public void close() throws DaoException {
 		try {
 			if (psCreateStud != null) {
@@ -136,46 +136,26 @@ public class MySqlStudentDao implements StudentDao {
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psReadStud != null) {
 				psReadStud.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psUpdStud != null) {
 				psUpdStud.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psDelStud != null) {
 				psDelStud.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psGetAllStud != null) {
 				psGetAllStud.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (connection != null) {
 				connection.close();
 				} else {
