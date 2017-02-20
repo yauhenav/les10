@@ -6,8 +6,7 @@ import java.io.*;
 
 public class Demo {
 	public static void main (String args[]) {
-
-			Connection con = null;
+			
 			DaoFactory interDaoFact = null;
 			StudentDao interDaoStud = null;
 			SubjectDao interDaoSub = null;
@@ -15,10 +14,9 @@ public class Demo {
 		// Establish connection with the DB
 		try {		
 			interDaoFact = new MySqlDaoFactory ();
-			con = interDaoFact.getConnect();
 		
 		//Retrieve and display all students
-			interDaoStud = interDaoFact.getStudentDao(con);
+			interDaoStud = interDaoFact.getStudentDao();
 			List<Student> showStuds0 = interDaoStud.getAll();
 			System.out.println ("Here's a list of all students in the DB");
 			Iterator<Student> itrstud0 = showStuds0.iterator();
@@ -28,7 +26,7 @@ public class Demo {
 			}
 		
 		// Retrieve and display all subjects
-			interDaoSub = interDaoFact.getSubjectDao(con);
+			interDaoSub = interDaoFact.getSubjectDao();
 			List<Subject> showSubs0 = interDaoSub.getAll();		
 			System.out.println ("Here goes a list of all subjects in the DB");
 			Iterator<Subject> itrsub0 = showSubs0.iterator();
@@ -38,7 +36,7 @@ public class Demo {
 			}
 		
 		// Retrieve and display all marks from the DB
-			interDaoMar = interDaoFact.getMarkDao(con);
+			interDaoMar = interDaoFact.getMarkDao();
 			List<Mark> showAllMarks = interDaoMar.getAll();
 			System.out.println ("Here goes a list of all marks of all students for all subjects");
 			Iterator<Mark> itrmar0 = showAllMarks.iterator();
@@ -211,10 +209,10 @@ public class Demo {
 				} else {
 					System.err.println("MySqlMarkDao object was not created");
 				}
-				if (con != null) {
-					con.close();
+				if (interDaoFact != null) {
+					interDaoFact.close();
 				} else {
-					System.err.println("Connection was not established");
+					System.err.println("MySqlDaoFactory object was not created");
 				} 
 			} catch (DaoException | SQLException exc) {
 				exc.printStackTrace();

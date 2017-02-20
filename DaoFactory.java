@@ -7,14 +7,17 @@ import java.io.*;
 public interface DaoFactory {
 
     // Returns connection to the Data Base
-    public Connection getConnect() throws SQLException, IOException, FileNotFoundException;
+    //abstract public Connection getConnect() throws SQLException, IOException, FileNotFoundException;
 
     // Returns an object to manage persistent 'Student' object
-    public StudentDao getStudentDao(Connection connection) throws DaoException;
+    public StudentDao getStudentDao() throws DaoException;
 
     // Returns an object to manage persistent 'Subject' object
-    public SubjectDao getSubjectDao(Connection connection) throws DaoException;
+    public SubjectDao getSubjectDao() throws DaoException;
 	
 	// Returns an object to manage persistent 'Mark' object
-	public MarkDao getMarkDao (Connection connection) throws DaoException;
+	public MarkDao getMarkDao () throws DaoException;
+	
+	// Closes Connection instance object
+	public void close() throws SQLException;
 }
