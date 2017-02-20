@@ -6,9 +6,6 @@ import java.io.*;
 
 public interface DaoFactory {
 
-    // Returns connection to the Data Base
-    //abstract public Connection getConnect() throws SQLException, IOException, FileNotFoundException;
-
     // Returns an object to manage persistent 'Student' object
     public StudentDao getStudentDao() throws DaoException;
 
