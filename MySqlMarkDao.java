@@ -22,7 +22,7 @@ public class MySqlMarkDao implements MarkDao {
 	public ResultSet rsGetAllMark = null;
 	public ResultSet rsGetAllMarkOneStud = null;
 	
-	// Конструктор
+	// Constructor
 	public MySqlMarkDao(Connection connection) throws DaoException {
 		try {
 			this.connection = connection;
@@ -37,7 +37,7 @@ public class MySqlMarkDao implements MarkDao {
 		}
 	}
 	
-	// Добавить в БД новую запись студента в соответствии с переданным экземляром Mark
+    // Creates a new DB entry as per corresponding received object
 	@Override
     public void create(Mark mark) throws DaoException {
 		try {
@@ -51,7 +51,7 @@ public class MySqlMarkDao implements MarkDao {
 		} 
 	}
 	
-	// Получить из БД экземпляр Mark по указанному ID
+    // Returns the object corresponding to the DB entry with received primary 'key'
     @Override
     public Mark read(int key) throws DaoException {
 		try {
@@ -80,7 +80,7 @@ public class MySqlMarkDao implements MarkDao {
 		}
 	}	
 	
-	// Обновить имеющуюся запись в БД в соответствии с переданным экземпляром Mark
+    // Modifies the DB entry as per corresponding received object
     @Override
     public void update(Mark mark) throws DaoException {
 		try {
@@ -94,7 +94,7 @@ public class MySqlMarkDao implements MarkDao {
 		} 
 	}
 
-	// Удалить запись из БД по ID из переданного экзмепляра Mark
+    // Removes the DB entry as per corresponding received object
     @Override
     public void delete(int key) throws DaoException {
 		try {
@@ -105,7 +105,7 @@ public class MySqlMarkDao implements MarkDao {
 		} 
 	}
 
-	// Создать коллекцию и заполнить ее всеми имеющимися объектами в БД
+    // Returns a list of objects corresponding to all DB entries
     @Override
     public List<Mark> getAll() throws DaoException {
 		try {
@@ -136,7 +136,7 @@ public class MySqlMarkDao implements MarkDao {
 		}
 	}
 		
-	// Создать коллекцию и заполнить ее всеми оценками одного студента
+	// Returns a list of Marks of one Student as per received primary 'key'
 	@Override
 	public List<Mark> getAllMarkOneStud (int key) throws DaoException {
 		try {
@@ -168,7 +168,7 @@ public class MySqlMarkDao implements MarkDao {
 		}
 	}
 	
-	// Закрыть все PreparedStatement и Connection, чтобы освободить ресурсы БД
+	// Terminates the connection and all 'PreparedStatement's
 	public void close() throws DaoException {
 		try {
 			if (psCreateMark != null) {
@@ -176,55 +176,31 @@ public class MySqlMarkDao implements MarkDao {
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psReadMark != null) {
 				psReadMark.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psUpdMark != null) {
 				psUpdMark.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psDelMark != null) {
 				psDelMark.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psGetAllMark != null) {
 				psGetAllMark.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (psGetAllMarkOneStud != null) {
 				psGetAllMarkOneStud.close();
 				} else {
 					System.err.println ("PS statement was not created");
 				}
-		} catch (SQLException exc) {
-			throw new DaoException ("Exception for DAO");
-		}
-		try {
 			if (connection != null) {
 				connection.close();
 				} else {
