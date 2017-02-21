@@ -5,21 +5,21 @@ import java.sql.*;
 
 public interface StudentDao {
 
-    // Создает новую запись и соответствующий ей объект
+    // Creates a new DB entry as per corresponding received object
 	public void create(Student student) throws DaoException;
 
-    // Возвращает объект соответствующий записи с первичным ключом key или null
+    // Returns the object corresponding to the DB entry with received primary 'key'
 	public Student read(int key) throws DaoException;
 
-    //Сохраняет состояние объекта в базе данных
+    // Modifies the DB entry as per corresponding received object
 	public void update(Student student) throws DaoException;
 
-    //Удаляет запись об объекте из базы данных
+    // Removes the DB entry as per corresponding received object
 	public void delete(Student student) throws DaoException;
 
-    //Возвращает список объектов соответствующих всем записям в базе данных
+    // Returns a list of objects corresponding to all DB entries
 	public List<Student> getAll() throws DaoException;	
 	
-	//Закрывает соединение и все PreparedStatement's
+	// Terminates the connection and all 'PreparedStatement's
 	public void close() throws DaoException;
 }
