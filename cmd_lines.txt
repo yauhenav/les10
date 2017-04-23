@@ -10,3 +10,4 @@ cd /home/yauhenav/lesrepos/les10/
 
 javac -cp ".:/home/yauhenav/lesrepos:/home/yauhenav/apache-tomcat-8.5.12/lib/mysql-connector-java-5.1.41-bin.jar" les10/*.java
 
+java -cp ".:/home/yauhenav/apache-tomcat-8.5.12/lib/mysql-connector-java-5.1.41-bin.jar" les10.Demo
