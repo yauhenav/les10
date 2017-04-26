@@ -6,7 +6,7 @@ javac -cp "e:\repos" e:\repos\les10\StudentDao.java e:\repos\les10\SubjectDao.ja
 
 Linux:
 
-cd /home/yauhenav/lesrepos/les10/
+cd /home/yauhenav/lesrepos/
 
 javac -cp ".:/home/yauhenav/lesrepos:/home/yauhenav/apache-tomcat-8.5.12/lib/mysql-connector-java-5.1.41-bin.jar" les10/*.java
 
